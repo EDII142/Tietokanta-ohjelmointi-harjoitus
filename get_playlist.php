@@ -5,7 +5,12 @@ $dbcon = createDbConnection();
 
 $playlist = "playlist_id";
 
-$Name = "SELECT Name FROM playlists WHERE $playlist = $playlist";
-$Composer = "SELECT Composer FROM tracks WHERE $playlist = $playlist";
+$sql = "SELECT Name, Composer FROM playlists, playlist_track, tracks WHERE PlaylistId = $playlist, playlists.PlayListId = playlist_track.PlayListId, playlist_track.TrackId = tracks.TrackId";
+$statement = $dbcon->prepare($sqlQuery);
+$statement->execute();
 
-echo $Name. $Composer;
+$rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+foreach($rows as $row){
+    echo $row["Name"]."<br>".["Composer"];
+}
