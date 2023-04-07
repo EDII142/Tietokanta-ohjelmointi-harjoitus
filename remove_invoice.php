@@ -1,6 +1,6 @@
 <?php
 
-require "dbconnection.php";
+require "./Tietokanta-ohjelmointi-harjoitus/dbconnection.php";
 $dbcon = createDbConnection();
 
 $invoice = "invoice_id";
