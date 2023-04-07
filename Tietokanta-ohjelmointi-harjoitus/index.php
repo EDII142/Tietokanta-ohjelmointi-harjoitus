@@ -3,6 +3,6 @@
 require "dbconnection.php";
 $dbcon = createDbConnection();
 
-require "remove_invoice.php";
+require "../remove_invoice.php";
 
 
