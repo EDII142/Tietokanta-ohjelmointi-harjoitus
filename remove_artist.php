@@ -9,7 +9,7 @@ try {
     $dbcon->beginTransaction();
 
     $statement = $dbcon->prepare("DELETE FROM artists WHERE artistId = $aristId");
-    $statement->execute(array($artistId));
+    $statement->execute($artistId);
 
     $dbcon->commit();
 } catch(Exception $e) {
